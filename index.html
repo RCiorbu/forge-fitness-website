@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forge Fitness</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1D1D1D;
+      color: #F5F5F5;
+      overflow-x: hidden;
+    }
+
+    /* Fade + Slide Animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
+    }
+    .slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      background-color: #1D1D1D;
+      border-bottom: 2px solid #E63946;
+    }
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+    h1 { font-size: 2.5rem; margin: 0; }
+
+    /* Video Hero */
+    .video-hero {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+    }
+    .video-hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+    .video-hero .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .hero-text h2 { font-size: 3rem; margin-bottom: 15px; }
+    .hero-text p { font-size: 1.2rem; max-width: 600px; margin: auto; }
+
+    .section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .section h3 {
+      font-size: 1.8rem;
+      color: #E63946;
+      margin-bottom: 20px;
+    }
+
+    /* Images */
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .images img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid #4B4B4B;
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .price-box {
+      background-color: #2A2A2A;
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid #4B4B4B;
+      transition: 0.3s;
+    }
+    .price-box:hover {
+      border-color: #E63946;
+      transform: scale(1.03);
+    }
+    .price-box h4 { font-size: 1.5rem; color: #FF6B35; }
+    .price-box p { margin-top: 10px; }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2A2A2A;
+      color: white;
+    }
+    button {
+      padding: 15px;
+      background-color: #E63946;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background-color: #FF6B35; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #E63946;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header class="fade-in">
+    <img src="forge-logo.png" alt="Forge Fitness Logo" />
+    <h1>Forge Fitness</h1>
+  </header>
+
+  <!-- VIDEO HERO SECTION -->
+  <section class="video-hero fade-in">
+    <video autoplay muted loop>
+      <source src="https://cdn.coverr.co/videos/coverr-man-lifting-dumbbells-4966/1080p.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-text">
+      <h2>Transform Your Body. Forge Your Strength.</h2>
+      <p>Elite coaching designed to build muscle, burn fat, and unlock your absolute strongest self.</p>
+    </div>
+  </section>
+
+  <section class="section slide-up">
+    <h3>What You Get</h3>
+    <ul>
+      <li>Fully customized training plans</li>
+      <li>Macro-based nutrition coaching</li>
+      <li>Weekly check-ins & progress tracking</li>
+      <li>Form coaching (video review)</li>
+      <li>Direct messaging support</li>
+    </ul>
+  </section>
+
+  <!-- CLIENT RESULTS -->
+  <section class="section fade-in">
+    <h3>Client Results</h3>
+    <div class="images">
+      <img src="https://images.unsplash.com/photo-1598971639058-1c519a6c3b45" />
+      <img src="https://images.unsplash.com/photo-1597076537075-5e9f5297ae06" />
+      <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1" />
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section slide-up">
+    <h3>Pricing</h3>
+    <div class="pricing-grid">
+      <div class="price-box">
+        <h4>Starter Plan – $99/month</h4>
+        <p>Custom training plan<br />Monthly check-ins<br />Basic support</p>
+      </div>
+
+      <div class="price-box">
+        <h4>Elite Plan – $199/month</h4>
+        <p>Custom training + nutrition<br />Weekly check-ins<br />Video form review<br />Unlimited messaging</p>
+      </div>
+
+      <div class="price-box">
+        <h4>VIP Plan – $299/month</h4>
+        <p>Daily accountability<br />Full nutrition planning<br />Priority support<br />Advanced periodization</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="section fade-in">
+    <h3>Join Forge Fitness</h3>
+    <form>
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Email Address" />
+      <textarea rows="5" placeholder="Tell me your goals"></textarea>
+      <button>Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Forge Fitness — Built For Strength.</p>
+  </footer>
+</body>
+</html>
