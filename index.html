@@ -4,53 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forge Fitness</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
-        body {
+        body, html {
             margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #0f0f0f;
-            color: #fff;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        a { text-decoration: none; color: inherit; }
+
         /* Header */
         header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #222;
+            padding: 20px 10%;
+            z-index: 1000;
         }
+        header h1 { font-weight: 700; }
         nav a {
             margin-left: 25px;
-            font-weight: 700;
+            font-weight: 600;
             transition: color 0.3s;
         }
-        nav a:hover {
-            color: #00f0ff;
-        }
-        /* Hero Section */
+        nav a:hover { color: #ff4d00; }
+
+        /* Hero Section with Background Image */
         .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 80vh;
+            color: white;
             text-align: center;
-            background: linear-gradient(135deg, #111, #222);
+            background: url('images/hero-workout.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        /* Optional overlay for text readability */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         .hero h1 {
             font-size: 4rem;
-            color: #00f0ff;
             margin: 0;
         }
         .hero p {
@@ -59,93 +70,85 @@
         }
         .hero button {
             padding: 15px 30px;
-            font-size: 1rem;
             font-weight: 700;
             border: none;
-            border-radius: 10px;
-            background-color: #00f0ff;
-            color: #0f0f0f;
+            border-radius: 8px;
+            background-color: #ff4d00;
+            color: #fff;
             cursor: pointer;
             transition: transform 0.3s;
         }
-        .hero button:hover {
-            transform: scale(1.05);
-        }
+        .hero button:hover { transform: scale(1.05); }
+
         /* Sections */
         section {
-            padding: 60px 0;
+            padding: 80px 10%;
         }
-        h2 {
-            text-align: center;
-            color: #00f0ff;
-            margin-bottom: 40px;
-        }
-        .services, .pricing {
+        h2 { text-align: center; margin-bottom: 50px; color: #ff4d00; }
+
+        /* Services & Pricing */
+        .cards {
             display: flex;
-            justify-content: space-around;
             flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-around;
+            gap: 30px;
         }
         .card {
-            background-color: #111;
+            background: #f8f8f8;
+            color: #333;
+            flex: 1 1 300px;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 20px #00f0ff33;
-            flex: 1 1 250px;
-            transition: transform 0.3s;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
-        .card h3 {
-            margin-top: 0;
-            color: #00f0ff;
-        }
-        .card p {
-            margin-bottom: 0;
-        }
-        /* Contact */
+        .card h3 { color: #ff4d00; margin-top: 0; }
+        .card p { margin-bottom: 0; }
+
+        /* Contact Form */
         .contact form {
+            max-width: 500px;
+            margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
         }
         .contact input, .contact textarea {
-            padding: 10px;
-            border-radius: 10px;
-            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
             font-size: 1rem;
         }
         .contact button {
             padding: 15px;
-            font-size: 1rem;
-            font-weight: 700;
             border: none;
-            border-radius: 10px;
-            background-color: #00f0ff;
-            color: #0f0f0f;
+            border-radius: 8px;
+            font-weight: 700;
+            background-color: #ff4d00;
+            color: #fff;
             cursor: pointer;
         }
-        .contact button:hover {
-            transform: scale(1.05);
-        }
+        .contact button:hover { transform: scale(1.05); }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #222;
-            color: #888;
+            padding: 30px 10%;
+            background: #222;
+            color: #aaa;
         }
     </style>
 </head>
 <body>
 
     <!-- Header -->
-    <header class="container">
-        <div class="logo">
-            <h1>Forge Fitness</h1>
-        </div>
+    <header>
+        <h1>Forge Fitness</h1>
         <nav>
             <a href="#services">Services</a>
             <a href="#pricing">Pricing</a>
@@ -153,36 +156,38 @@
         </nav>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Forge Your Strength</h1>
-        <p>Personal Training, Small Groups & Online Coaching</p>
-        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book a Free Session</button>
+        <div class="hero-content">
+            <h1>Forge Your Strength</h1>
+            <p>Personal Training • Small Group • Online Coaching</p>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Free Session</button>
+        </div>
     </section>
 
     <!-- Services -->
-    <section id="services" class="container">
+    <section id="services">
         <h2>Our Services</h2>
-        <div class="services">
+        <div class="cards">
             <div class="card">
                 <h3>Personal Training</h3>
-                <p>One-on-one sessions tailored to your goals and fitness level.</p>
+                <p>One-on-one sessions tailored to your fitness goals.</p>
             </div>
             <div class="card">
-                <h3>Small Group Training</h3>
-                <p>High-energy group workouts for motivation and results.</p>
+                <h3>Small Group</h3>
+                <p>High-energy workouts with friends or like-minded individuals.</p>
             </div>
             <div class="card">
                 <h3>Online Coaching</h3>
-                <p>Custom plans and guidance delivered remotely for your convenience.</p>
+                <p>Custom plans and guidance delivered remotely.</p>
             </div>
         </div>
     </section>
 
     <!-- Pricing -->
-    <section id="pricing" class="container">
+    <section id="pricing">
         <h2>Pricing</h2>
-        <div class="pricing">
+        <div class="cards">
             <div class="card">
                 <h3>1-on-1 Training</h3>
                 <p>$70 per session</p>
@@ -199,7 +204,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="container contact">
+    <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <form>
             <input type="text" placeholder="Name" required>
@@ -216,3 +221,5 @@
 
 </body>
 </html>
+
+
